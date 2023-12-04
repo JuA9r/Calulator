@@ -73,6 +73,7 @@ class calc(tk.Frame):
         print(f"answer : {value}")
         return
 
+    # Button press determination
     def callback(self, event: any) -> None:
         event.widget.config()
         print("button pressed : "
