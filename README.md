@@ -21,6 +21,7 @@ _Basic functions_
 - [x] Text box input restrictions
 - [x] Numerical input
 - [x] Delete formula
+- [x] Arithmetic processing
 - [x] Displaying calculation results
 - [x] Button generation
 
