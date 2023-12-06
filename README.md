@@ -23,7 +23,7 @@ _main_
 - [x] Text box input restrictions
 - [x] Numerical input
 - [x] Delete formula
-- [x] Arithmetic processing
+- [x] Four arithmetic operations
 - [x] Displaying calculation results
 - [ ] factorial calculation
 - [ ] index calculation
