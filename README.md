@@ -25,4 +25,6 @@ _main_
 - [x] Delete formula
 - [x] Arithmetic processing
 - [x] Displaying calculation results
+- [ ] index calculation
+- [ ] Trigonometric function
 
