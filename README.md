@@ -1,6 +1,7 @@
 # make calculator
 ## __Execution environment__
 - Python >= 3.11.0
+- tkinter >= 8.6
 
 ## __overview__
 - Generate a simple calculator
@@ -13,14 +14,17 @@ _Basic functions_
 - Input with mouse and keyboard
 - Four arithmetic operations
 
-# __ToDo__
+## __ToDo__
 
-- _main_
+_main_
  
 - [x] Window generation
+- [x] Button generation
 - [x] Text box input restrictions
 - [x] Numerical input
 - [x] Delete formula
+- [x] Arithmetic processing
 - [x] Displaying calculation results
-- [x] Button generation
+- [ ] index calculation
+- [ ] Trigonometric function
 
