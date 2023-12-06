@@ -19,10 +19,10 @@ _Basic functions_
 _main_
  
 - [x] Window generation
+- [x] Button generation
 - [x] Text box input restrictions
 - [x] Numerical input
 - [x] Delete formula
 - [x] Arithmetic processing
 - [x] Displaying calculation results
-- [x] Button generation
 
