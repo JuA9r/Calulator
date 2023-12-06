@@ -13,7 +13,7 @@ _Basic functions_
 - Input with mouse and keyboard
 - Four arithmetic operations
 
-# __ToDo__
+## __ToDo__
 
 - _main_
  
