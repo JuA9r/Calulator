@@ -3,7 +3,7 @@
 - Python >= 3.11.0
 - tkinter >= 8.6
 
-## __overview__
+## __Overview__
 - Generate a simple calculator
 
 ## __Code overview__
