@@ -15,7 +15,7 @@ _Basic functions_
 
 ## __ToDo__
 
-- _main_
+_main_
  
 - [x] Window generation
 - [x] Text box input restrictions
