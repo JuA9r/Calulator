@@ -80,14 +80,9 @@ class calc(tk.Frame):
         print("button pressed : "
               + str(event.widget["text"]))
         input_txt = event.widget["text"]
-        if str(input_txt) in "AC":
-            self.all_clear()
 
-        elif str(input_txt) in "=":
-            self.equals()
-
-        else:
-            self.input(input_txt)
+        self.all_clear() if str(input_txt) in "AC" else self.equals() \
+            if str(input_txt) in "=" else self.input(input_txt)
         return
 
     # ボタン生成
