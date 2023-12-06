@@ -15,7 +15,7 @@ def test_char(string: any) -> bool:
         except ValueError:
             continue
 
-    for c in ["+", "-", "×", "÷", "=", "."]:
+    for c in ["+", "-", "×", "÷", "=", ".", "%"]:
         if string[-1] == c:
             return True
     return False
@@ -67,6 +67,7 @@ class calc(tk.Frame):
             self.txt.get()
             .replace('÷', '/').replace('×', '*')
             .replace('＋', '+').replace('－', '-')
+            .replace('%', '%')
         )
         self.txt.delete(0, tk.END)
         self.txt.insert(0, value)
@@ -96,13 +97,13 @@ class calc(tk.Frame):
 
         for i in range(1, 10):
             num_btn = tk.Button(self.master, text=i, width=10, height=5)
-            num_btn.grid(row=3 - (i - 1) // 3, column=(i - 1) % 3)
+            num_btn.grid(row=3-(i-1)//3, column=(i-1)%3)
             num_btn.bind("<Button-1>", self.callback)
             continue
 
         for i, j in enumerate(btn_lst):
             str_btn = tk.Button(self.master, text=j, width=10, height=5)
-            str_btn.grid(row=i + 1, column=3)
+            str_btn.grid(row=i+1, column=3)
             str_btn.bind("<Button-1>", self.callback)
             continue
 
