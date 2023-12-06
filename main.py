@@ -15,7 +15,10 @@ def test_char(string: any) -> bool:
         except ValueError:
             continue
 
-    for c in ["+", "-", "×", "÷", "=", ".", "%"]:
+    for c in [
+        "+", "-", "×", "÷", "=",
+        ".", "%", "(", ")"
+    ]:
         if string[-1] == c:
             return True
     return False
@@ -81,8 +84,11 @@ class calc(tk.Frame):
               + str(event.widget["text"]))
         input_txt = event.widget["text"]
 
-        self.all_clear() if str(input_txt) in "AC" else self.equals() \
-            if str(input_txt) in "=" else self.input(input_txt)
+        _ = [
+            self.all_clear() if str(input_txt) in "AC" else
+            self.equals() if str(input_txt) in "=" else
+            self.input(input_txt)
+        ]
         return
 
     # ボタン生成
