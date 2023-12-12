@@ -1,8 +1,9 @@
 import tkinter as tk
 import tkinter.font as font
+import math
 
 
-# テキストボックスの入力制限
+# Text box input restrictions
 def test_char(string: any) -> bool:
     if len(string) == 0:
         return True
@@ -17,7 +18,7 @@ def test_char(string: any) -> bool:
 
     for c in [
         "+", "-", "×", "÷", "=",
-        ".", "%", "(", ")"
+        ".", "%", "(", ")", "^",
     ]:
         if string[-1] == c:
             return True
@@ -29,7 +30,7 @@ class calc(tk.Frame):
         super().__init__(master)
         self.master = master
 
-        # ウィンドウ生成
+        # Window generation
         self.master.title("calculator")
 
         txt_font = tk.font.Font(
@@ -47,41 +48,43 @@ class calc(tk.Frame):
         self.make_Widgets()
         return
 
-    # 数値入力
+    # Numerical input
     def input(self, num: any) -> any:
         self.txt.insert(tk.END, num)
         return
 
-    # 全削除
+    # Delete all
     def all_clear(self):
         self.txt.delete(0, tk.END)
         return
 
-    # 1行削除
+    # Delete one line
     def one_clear(self):
         text = self.txt.get()
         self.txt.delete(0, tk.END)
         self.txt.insert(0, text[:-1])
         return
 
-    # 計算結果の表示
+    # Displaying calculation results
     def equals(self):
         value = eval(
             self.txt.get()
             .replace('÷', '/').replace('×', '*')
             .replace('＋', '+').replace('－', '-')
-            .replace('%', '%')
+            .replace('%', '%').replace('^', '**')
         )
         self.txt.delete(0, tk.END)
         self.txt.insert(0, value)
-        print(f"answer : {value}")
+        print(f"Answer : {value}")
         return
 
     # Button press determination
     def callback(self, event: any) -> None:
         event.widget.config()
-        print("button pressed : "
-              + str(event.widget["text"]))
+        print(
+            "button pressed : "
+            + str(event.widget["text"])
+        )
         input_txt = event.widget["text"]
 
         _ = [
@@ -91,10 +94,10 @@ class calc(tk.Frame):
         ]
         return
 
-    # ボタン生成
+    # Button generation
     def make_Widgets(self) -> None:
         btn_lst = ["+", "-", "×", "÷"]
-        btn2_lst = ["AC", "0", "="]
+        btn_lst2 = ["AC", "0", "="]
 
         for i in range(1, 10):
             num_btn = tk.Button(self.master, text=i, width=10, height=5)
@@ -108,7 +111,7 @@ class calc(tk.Frame):
             str_btn.bind("<Button-1>", self.callback)
             continue
 
-        for i, k in enumerate(btn2_lst):
+        for i, k in enumerate(btn_lst2):
             str_btn2 = tk.Button(self.master, text=k, width=10, height=5)
             str_btn2.grid(row=4, column=i)
             str_btn2.bind("<Button-1>", self.callback)
