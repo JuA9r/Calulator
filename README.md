@@ -3,7 +3,7 @@
 - Python >= 3.11.0
 - tkinter >= 8.6
 
-## __overview__
+## __Overview__
 - Generate a simple calculator
 
 ## __Code overview__
@@ -23,8 +23,9 @@ _main_
 - [x] Text box input restrictions
 - [x] Numerical input
 - [x] Delete formula
-- [x] Arithmetic processing
+- [x] Four arithmetic operations
 - [x] Displaying calculation results
+- [ ] factorial calculation
 - [ ] index calculation
 - [ ] Trigonometric function
 
