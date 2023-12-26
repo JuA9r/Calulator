@@ -26,6 +26,6 @@ _main_
 - [x] Four arithmetic operations
 - [x] Displaying calculation results
 - [ ] factorial calculation
-- [ ] index calculation
+- [x] power calculation
 - [ ] Trigonometric function
 
