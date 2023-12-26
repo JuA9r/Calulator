@@ -1,5 +1,13 @@
+"""
+
+    calculator program
+
+"""
+# import tkinter
 import tkinter as tk
 import tkinter.font as font
+
+# import math
 import math
 
 
@@ -18,7 +26,7 @@ def test_char(string: any) -> bool:
 
     for c in [
         "+", "-", "×", "÷", "=",
-        ".", "%", "(", ")", "^",
+        ".", "%", "(", ")", "^", "/"
     ]:
         if string[-1] == c:
             return True
@@ -72,11 +80,19 @@ class calc(tk.Frame):
             .replace('÷', '/').replace('×', '*')
             .replace('＋', '+').replace('－', '-')
             .replace('%', '%').replace('^', '**')
+            .replace('÷÷', '//')
         )
         self.txt.delete(0, tk.END)
         self.txt.insert(0, value)
         print(f"Answer : {value}")
         return
+
+    # factorial calculation
+    def factorial(self, num):
+        val = 1
+        for i in range(num, 1, -1):
+            val *= 1
+        return num
 
     # Button press determination
     def callback(self, event: any) -> None:
@@ -118,7 +134,7 @@ class calc(tk.Frame):
             continue
 
     def mathematical_operations(self):
-        pass
+        ...
 
 
 def main():
