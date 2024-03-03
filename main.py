@@ -3,6 +3,7 @@
     calculator program
 
 """
+
 # import tkinter
 import tkinter as tk
 import tkinter.font as font
@@ -62,25 +63,24 @@ class calc(tk.Frame):
         return
 
     # Delete all
-    def all_clear(self):
+    def all_clear(self) -> None:
         self.txt.delete(0, tk.END)
         return
 
     # Delete one line
-    def one_clear(self):
+    def one_clear(self) -> None:
         text = self.txt.get()
         self.txt.delete(0, tk.END)
         self.txt.insert(0, text[:-1])
         return
 
     # Displaying calculation results
-    def equals(self):
+    def equals(self) -> None:
         value = eval(
             self.txt.get()
             .replace('÷', '/').replace('×', '*')
             .replace('＋', '+').replace('－', '-')
             .replace('%', '%').replace('^', '**')
-            .replace('÷÷', '//')
         )
         self.txt.delete(0, tk.END)
         self.txt.insert(0, value)
@@ -132,9 +132,6 @@ class calc(tk.Frame):
             str_btn2.grid(row=4, column=i)
             str_btn2.bind("<Button-1>", self.callback)
             continue
-
-    def mathematical_operations(self):
-        ...
 
 
 def main():
