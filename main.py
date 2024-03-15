@@ -27,7 +27,8 @@ def test_char(string: any) -> bool:
 
     for c in [
         "+", "-", "×", "÷", "=",
-        ".", "%", "(", ")", "^", "/"
+        ".", "%", "(", ")", "^",
+        "/", "√"
     ]:
         if string[-1] == c:
             return True
@@ -81,18 +82,12 @@ class calc(tk.Frame):
             .replace('÷', '/').replace('×', '*')
             .replace('＋', '+').replace('－', '-')
             .replace('%', '%').replace('^', '**')
+            .replace('√', "**(1/2)")
         )
         self.txt.delete(0, tk.END)
         self.txt.insert(0, value)
         print(f"Answer : {value}")
         return
-
-    # factorial calculation
-    def factorial(self, num):
-        val = 1
-        for i in range(num, 1, -1):
-            val *= 1
-        return num
 
     # Button press determination
     def callback(self, event: any) -> None:
@@ -114,6 +109,7 @@ class calc(tk.Frame):
     def make_Widgets(self) -> None:
         btn_lst = ["+", "-", "×", "÷"]
         btn_lst2 = ["AC", "0", "="]
+        btn_lst3 = ["√", "%", ".", "^"]
 
         for i in range(1, 10):
             num_btn = tk.Button(self.master, text=i, width=10, height=5)
@@ -131,6 +127,12 @@ class calc(tk.Frame):
             str_btn2 = tk.Button(self.master, text=k, width=10, height=5)
             str_btn2.grid(row=4, column=i)
             str_btn2.bind("<Button-1>", self.callback)
+            continue
+
+        for i, l in enumerate(btn_lst3):
+            str_btn3 = tk.Button(self.master, text=l, width=10, height=5)
+            str_btn3.grid(row=5, column=i)
+            str_btn3.bind("<Button-1>", self.callback)
             continue
 
 
