@@ -28,7 +28,7 @@ def test_char(string: any) -> bool:
     for c in [
         "+", "-", "×", "÷", "=",
         ".", "%", "(", ")", "^",
-        "/", "√"
+        "/", "√", "!"
     ]:
         if string[-1] == c:
             return True
@@ -75,6 +75,17 @@ class calc(tk.Frame):
         self.txt.insert(0, text[:-1])
         return
 
+    def factorial(self) -> None:
+        try:
+            num = int(self.txt.get())
+            result = math.factorial(num)
+            self.txt.delete(0, tk.END)
+            self.txt.insert(0, result)
+
+        except ValueError:
+            self.txt.delete(0, tk.END)
+            self.txt.insert(0, "Error")
+
     # Displaying calculation results
     def equals(self) -> None:
         value = eval(
@@ -101,6 +112,7 @@ class calc(tk.Frame):
         _ = [
             self.all_clear() if str(input_txt) in "AC" else
             self.equals() if str(input_txt) in "=" else
+            self.factorial() if str(input_txt) in "!" else
             self.input(input_txt)
         ]
         return
@@ -109,7 +121,7 @@ class calc(tk.Frame):
     def make_Widgets(self) -> None:
         btn_lst = ["+", "-", "×", "÷"]
         btn_lst2 = ["AC", "0", "="]
-        btn_lst3 = ["√", "%", ".", "^"]
+        btn_lst3 = ["√", "!", ".", "^"]
 
         for i in range(1, 10):
             num_btn = tk.Button(self.master, text=i, width=10, height=5)
