@@ -25,7 +25,7 @@ _main_
 - [x] Delete formula
 - [x] Four arithmetic operations
 - [x] Displaying calculation results
-- [ ] factorial calculation
+- [x] factorial calculation
 - [x] power calculation
 - [ ] Trigonometric function
 

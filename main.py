@@ -28,7 +28,8 @@ def test_char(string: any) -> bool:
     for c in [
         "+", "-", "×", "÷", "=",
         ".", "%", "(", ")", "^",
-        "/", "√", "!"
+        "/", "√", "!", "π", "sin",
+        "cos", "tan"
     ]:
         if string[-1] == c:
             return True
@@ -86,6 +87,17 @@ class calc(tk.Frame):
             self.txt.delete(0, tk.END)
             self.txt.insert(0, "Error")
 
+    def pi(self):
+        try:
+            num = int(self.txt.get())
+            result = math.pi * num
+            self.txt.delete(0, tk.END)
+            self.txt.insert(0, result)
+
+        except ValueError:
+            self.txt.delete(0, tk.END)
+            self.txt.insert(0, "Error")
+
     # Displaying calculation results
     def equals(self) -> None:
         value = eval(
@@ -113,6 +125,7 @@ class calc(tk.Frame):
             self.all_clear() if str(input_txt) in "AC" else
             self.equals() if str(input_txt) in "=" else
             self.factorial() if str(input_txt) in "!" else
+            self.pi() if str(input_txt) in "π" else
             self.input(input_txt)
         ]
         return
@@ -122,6 +135,7 @@ class calc(tk.Frame):
         btn_lst = ["+", "-", "×", "÷"]
         btn_lst2 = ["AC", "0", "="]
         btn_lst3 = ["√", "!", ".", "^"]
+        btn_lst4 = ["π", "sin", "cos", "tan"]
 
         for i in range(1, 10):
             num_btn = tk.Button(self.master, text=i, width=10, height=5)
@@ -146,6 +160,12 @@ class calc(tk.Frame):
             str_btn3.grid(row=5, column=i)
             str_btn3.bind("<Button-1>", self.callback)
             continue
+
+        # for i, n in enumerate(btn_lst4):
+        #     str_btn2 = tk.Button(self.master, text=n, width=10, height=5)
+        #     str_btn2.grid(row=6, column=i)
+        #     str_btn2.bind("<Button-1>", self.callback)
+        #     continue
 
 
 def main():
