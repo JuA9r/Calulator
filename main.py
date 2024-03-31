@@ -28,8 +28,7 @@ def test_char(string: any) -> bool:
     for c in [
         "+", "-", "×", "÷", "=",
         ".", "%", "(", ")", "^",
-        "/", "√", "!", "π", "sin",
-        "cos", "tan"
+        "/", "√", "!", "π", "e",
     ]:
         if string[-1] == c:
             return True
@@ -54,7 +53,7 @@ class calc(tk.Frame):
             insertbackground="lime", font=txt_font,
             validate="key", validatecommand=(vc, "%P")
         )
-        self.txt.grid(row=0, column=0, columnspan=4)
+        self.txt.grid(row=0, column=0, columnspan=5, sticky="ew")
 
         self.make_Widgets()
         return
@@ -84,8 +83,7 @@ class calc(tk.Frame):
             self.txt.insert(0, result)
 
         except ValueError:
-            self.txt.delete(0, tk.END)
-            self.txt.insert(0, "Error")
+            pass
 
     def pi(self):
         try:
@@ -95,8 +93,17 @@ class calc(tk.Frame):
             self.txt.insert(0, result)
 
         except ValueError:
+            pass
+
+    def exp(self) -> None:
+        try:
+            num = int(self.txt.get())
+            result = math.exp(num)
             self.txt.delete(0, tk.END)
-            self.txt.insert(0, "Error")
+            self.txt.insert(0, result)
+
+        except ValueError:
+            pass
 
     # Displaying calculation results
     def equals(self) -> None:
@@ -105,7 +112,9 @@ class calc(tk.Frame):
             .replace('÷', '/').replace('×', '*')
             .replace('＋', '+').replace('－', '-')
             .replace('%', '%').replace('^', '**')
-            .replace('√', "**(1/2)")
+            .replace('√', "**(1/2)").replace("e", "2.71")
+            .replace("π", "3.14")
+
         )
         self.txt.delete(0, tk.END)
         self.txt.insert(0, value)
@@ -125,7 +134,6 @@ class calc(tk.Frame):
             self.all_clear() if str(input_txt) in "AC" else
             self.equals() if str(input_txt) in "=" else
             self.factorial() if str(input_txt) in "!" else
-            self.pi() if str(input_txt) in "π" else
             self.input(input_txt)
         ]
         return
@@ -133,9 +141,9 @@ class calc(tk.Frame):
     # Button generation
     def make_Widgets(self) -> None:
         btn_lst = ["+", "-", "×", "÷"]
-        btn_lst2 = ["AC", "0", "="]
+        btn_lst2 = ["00", "0", "="]
         btn_lst3 = ["√", "!", ".", "^"]
-        btn_lst4 = ["π", "sin", "cos", "tan"]
+        btn_lst4 = ["π", "e", "//", "%", "AC"]
 
         for i in range(1, 10):
             num_btn = tk.Button(self.master, text=i, width=10, height=5)
@@ -161,11 +169,11 @@ class calc(tk.Frame):
             str_btn3.bind("<Button-1>", self.callback)
             continue
 
-        # for i, n in enumerate(btn_lst4):
-        #     str_btn2 = tk.Button(self.master, text=n, width=10, height=5)
-        #     str_btn2.grid(row=6, column=i)
-        #     str_btn2.bind("<Button-1>", self.callback)
-        #     continue
+        for i, n in enumerate(btn_lst4):
+            str_btn2 = tk.Button(self.master, text=n, width=10, height=5)
+            str_btn2.grid(row=i+1, column=4)
+            str_btn2.bind("<Button-1>", self.callback)
+            continue
 
 
 def main():
