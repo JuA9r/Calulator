@@ -173,9 +173,9 @@ class calc(tk.Frame):
             continue
 
         for i, m in enumerate(btn_lst4):
-            str_btn2 = tk.Button(self.master, text=m, width=10, height=5)
-            str_btn2.grid(row=i+1, column=4)
-            str_btn2.bind("<Button-1>", self.callback)
+            str_btn4 = tk.Button(self.master, text=m, width=10, height=5)
+            str_btn4.grid(row=i+1, column=4)
+            str_btn4.bind("<Button-1>", self.callback)
             continue
 
 
