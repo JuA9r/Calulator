@@ -81,6 +81,7 @@ class calc(tk.Frame):
             result = math.factorial(num)
             self.txt.delete(0, tk.END)
             self.txt.insert(0, result)
+            return
 
         except ValueError:
             pass
@@ -91,6 +92,7 @@ class calc(tk.Frame):
             result = math.pi * num
             self.txt.delete(0, tk.END)
             self.txt.insert(0, result)
+            return
 
         except ValueError:
             pass
@@ -101,6 +103,7 @@ class calc(tk.Frame):
             result = math.exp(num)
             self.txt.delete(0, tk.END)
             self.txt.insert(0, result)
+            return
 
         except ValueError:
             pass
@@ -169,8 +172,8 @@ class calc(tk.Frame):
             str_btn3.bind("<Button-1>", self.callback)
             continue
 
-        for i, n in enumerate(btn_lst4):
-            str_btn2 = tk.Button(self.master, text=n, width=10, height=5)
+        for i, m in enumerate(btn_lst4):
+            str_btn2 = tk.Button(self.master, text=m, width=10, height=5)
             str_btn2.grid(row=i+1, column=4)
             str_btn2.bind("<Button-1>", self.callback)
             continue
