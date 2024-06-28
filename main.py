@@ -28,7 +28,7 @@ def test_char(string: any) -> bool:
     for c in [
         "+", "-", "×", "÷", "=",
         ".", "%", "(", ")", "^",
-        "/", "√", "!", "π", "e",
+        "/", "√", "!", "π", "e"
     ]:
         if string[-1] == c:
             return True
