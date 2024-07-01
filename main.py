@@ -35,7 +35,7 @@ def test_char(string: any) -> bool:
     return False
 
 
-class calc(tk.Frame):
+class Calc(tk.Frame):
     def __init__(self, master: any) -> None:
         super().__init__(master)
         self.master = master
@@ -181,7 +181,7 @@ class calc(tk.Frame):
 
 def main():
     root = tk.Tk()
-    app = calc(master=root)
+    app = Calc(master=root)
     app.mainloop()
     return
 
