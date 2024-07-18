@@ -27,5 +27,6 @@ _main_
 - [x] Displaying calculation results
 - [x] factorial calculation
 - [x] power calculation
-- [ ] Trigonometric function
+- [ ] trigonometric function
+- [ ] logarithm function
 

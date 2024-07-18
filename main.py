@@ -35,6 +35,7 @@ def test_char(string: any) -> bool:
     return False
 
 
+# calculator class
 class Calc(tk.Frame):
     def __init__(self, master: any) -> None:
         super().__init__(master)
@@ -75,6 +76,7 @@ class Calc(tk.Frame):
         self.txt.insert(0, text[:-1])
         return
 
+    # factorial calculation
     def factorial(self) -> None:
         try:
             num = int(self.txt.get())
@@ -86,6 +88,7 @@ class Calc(tk.Frame):
         except ValueError:
             pass
 
+    # pi calculation
     def pi(self):
         try:
             num = int(self.txt.get())
@@ -97,6 +100,7 @@ class Calc(tk.Frame):
         except ValueError:
             pass
 
+    # exp calculation
     def exp(self) -> None:
         try:
             num = int(self.txt.get())
@@ -104,6 +108,8 @@ class Calc(tk.Frame):
             self.txt.delete(0, tk.END)
             self.txt.insert(0, result)
             return
+
+
 
         except ValueError:
             pass
