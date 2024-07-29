@@ -17,7 +17,7 @@ def test_char(string: any) -> bool:
     if len(string) == 0:
         return True
 
-    types = (int, float)
+    types: tuple[any, any] = (int, float)
     for type_ in types:
         try:
             type_(string[-1])
@@ -89,7 +89,7 @@ class Calc(tk.Frame):
             pass
 
     # pi calculation
-    def pi(self):
+    def pi(self) -> None:
         try:
             num = int(self.txt.get())
             result = math.pi * num
@@ -109,8 +109,6 @@ class Calc(tk.Frame):
             self.txt.insert(0, result)
             return
 
-
-
         except ValueError:
             pass
 
@@ -123,7 +121,6 @@ class Calc(tk.Frame):
             .replace('%', '%').replace('^', '**')
             .replace('√', "**(1/2)").replace("e", "2.71")
             .replace("π", "3.14")
-
         )
         self.txt.delete(0, tk.END)
         self.txt.insert(0, value)
@@ -149,7 +146,7 @@ class Calc(tk.Frame):
 
     # Button generation
     def make_Widgets(self) -> None:
-        btn_lst = ["+", "-", "×", "÷"]
+        btn_lst1 = ["+", "-", "×", "÷"]
         btn_lst2 = ["00", "0", "="]
         btn_lst3 = ["√", "!", ".", "^"]
         btn_lst4 = ["π", "e", "//", "%", "AC"]
@@ -160,7 +157,7 @@ class Calc(tk.Frame):
             num_btn.bind("<Button-1>", self.callback)
             continue
 
-        for i, j in enumerate(btn_lst):
+        for i, j in enumerate(btn_lst1):
             str_btn = tk.Button(self.master, text=j, width=10, height=5)
             str_btn.grid(row=i+1, column=3)
             str_btn.bind("<Button-1>", self.callback)
@@ -185,7 +182,7 @@ class Calc(tk.Frame):
             continue
 
 
-def main():
+def main() -> None:
     root = tk.Tk()
     app = Calc(master=root)
     app.mainloop()
