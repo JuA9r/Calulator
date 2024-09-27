@@ -4,7 +4,7 @@
 - tkinter --> 8.6
 
 ## __Overview__
-- Generate a simple calculator
+- Generate a calculator
 
 ## __Code overview__
 
