@@ -1,7 +1,7 @@
 # make calculator
 ## __Execution environment__
-- Python >= 3.11.0
-- tkinter >= 8.6
+- Python --> 3.11.0
+- tkinter --> 8.6
 
 ## __Overview__
 - Generate a simple calculator
